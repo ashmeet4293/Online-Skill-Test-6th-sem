@@ -1,31 +1,30 @@
 	<?php
-		$user = "admin";
-		$pass = "12345";
-		$quest = "What is your pet’s name?";
-		$ans = "bob";
+		
+                
+                $mysqli = new mysqli("localhost", "root", "system", "oes");
+
 		if (isset($_POST['btnLogin'])){
-			/*require 'ConnectionPage.php';
 			$username = $_POST['username'];
 			$password = $_POST['password'];
-			$result = mysqli_query($conn,'select * from adminlogin where Username = "'.$username.'" and Password = "'.$password.'"');
-			if(mysqli_num_rows($result)==1){
+			$result = 'select * from admin where Admin_name = "'.$username.'" and Password = "'.$password.'"';
+			if($mysqli->query($result)==true){
 				session_start();
 				$_SESSION['username'] = $username;
 				header('location:AdminPage.php');
 			}
 			else{
 				echo "Invalid Account";
-			}*/
-			$username = $_POST["username"];
-			$password = $_POST["password"];
-			$question = $_POST["question"];
-			$answer = $_POST["answer"];
-			if($username==$user and $password==$pass){
-				//SELECT username,passwrod from admin wehre 
-                                session_start();
-				$_SESSION["username"]=$username;
-				header('location:AdminPage.php');
 			}
+//			$username = $_POST["username"];
+//			$password = $_POST["password"];
+//			$question = $_POST["question"];
+//			$answer = $_POST["answer"];
+//			if($username==$user and $password==$pass){
+//				//SELECT username,passwrod from admin wehre 
+//                                session_start();
+//				$_SESSION["username"]=$username;
+//				header('location:AdminPage.php');
+//			}
 		}
 	?>
 <!DOCTYPE>

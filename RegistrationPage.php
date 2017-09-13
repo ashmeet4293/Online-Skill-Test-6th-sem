@@ -3,7 +3,7 @@
 $mysqli = new mysqli("localhost", "root", "system", "oes");
 
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['btnSignup'])) {
     $name = $_POST['fullname'];
     $email = $_POST["email"];
     $username = $_POST["username"];
@@ -15,22 +15,21 @@ if (isset($_POST['submit'])) {
     $phone = $_POST["phone"];
     $question = $_POST["question"];
     $answer = $_POST["answer"];
+    $regDate=date("Y-m-d H:i:s");
+    $address=$_POST["address"];
 
     
-    $insertquery ="INSERT INTO students(Fname,Email,Gender,DOB,Uname,Pass,Confirm_Pass,security_question,Answer)
-            VALUES ('$name','$email','$gender','$birthDate','$username','$password','$confirmPassword','$question','$answer')";
+    $insertquery ="INSERT INTO students(Fname,Email,Gender,DOB,Pass,Confirm_Pass,security_question,Answer,reg_date,address)
+            VALUES ('$name','$email','$gender','$birthDate','$password','$confirmPassword','$question','$answer','$regDate','$address')";
 
     if($mysqli->query($insertquery) === TRUE){
         echo "succesfully inserted";
         
     }else{
-        echo"cannot insert the data";
+        echo"cannot insert the";
     }
 	
-?>
-    
-      <script> alert('Record Inserted Successfully...');</script>
-      <?php
+
 }
 ?>
 <html>
@@ -54,7 +53,7 @@ if (isset($_POST['submit'])) {
                         <form class="form-signup" method = "POST" action="RegistrationPage.php">
                             <input type="text" name = "fullname" class="form-control" placeholder="Full Name..." required autofocus>
                             <input type="email" name = "email" class="form-control" placeholder="Email..." required autofocus>
-                            <input type="text" name = "username" class="form-control" placeholder="Username..." required autofocus>
+                           <!--<input type="text" name = "address" class="form-control" placeholder="Address..." required autofocus>-->
                             <input type="password" name = "password" class="form-control" placeholder="Password..." required autofocus>
                             <input type="password" name = "confirmPassword" class="form-control" placeholder="Confirm Password..." required autofocus>
                             <select name="subject" class="form-control" required="required">
@@ -75,9 +74,9 @@ if (isset($_POST['submit'])) {
                                 <option value="5">What is your movie?</option>
                             </select>
                             <input type="text" name = "answer" class="form-control" placeholder="Your Answer..." required autofocus> 
-                            <!--<button class="btn btn-lg btn-success btn-block" type="submit" name ="btnSignup">Sign Up</button>-->
+                            <button class="btn btn-lg btn-success btn-block" type="submit" name ="btnSignup">Sign Up</button>
                             <p class="text-center new-account">Already Registered?<a href="StudentLoginPage.php">
-                                    <input type="submit" value="submit" name="submit">SUbmit</input></a></p>
+                                    <!--<input type="submit" value="submit" name="submit">SUbmit</input></a></p>-->
                         </form>
                     </div>
                 </div>
