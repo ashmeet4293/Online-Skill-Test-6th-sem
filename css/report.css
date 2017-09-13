@@ -1,0 +1,32 @@
+	body{
+		background-image:url('../img/bg6.jpg');
+		background-repeat:no-repeat;
+		background-size:stretch;
+		background-position:center;
+	}
+	th{
+		text-align:right;
+		font-family:cambria;
+		width:20%;
+	}
+	td{
+		font-family:cambria;
+	}
+	.form-control{
+		border-radius:5px;
+		height:35px;
+		font-family:cambria;
+	}
+	.form-signup
+	{
+		max-width: 330px;
+		margin: 0 auto;
+	}
+	.success th{
+		text-align:center;
+		font-family:verdana;
+	}
+	.info td{
+		text-align:center;
+		font-family:cambria;
+	}

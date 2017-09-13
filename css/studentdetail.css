@@ -1,0 +1,9 @@
+	body{
+		background-image:url('../img/bg6.jpg');
+		background-repeat:no-repeat;
+		background-size:stretch;
+		background-position:center;
+	}
+	th{
+		text-align:center;
+	}

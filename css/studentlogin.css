@@ -1,0 +1,74 @@
+	/*CSS code for Login Page */
+	body{
+		background-image:url('../img/bg4.jpg');
+		background-repeat:no-repeat;
+		background-size:stretch;
+		background-position:center;
+	}
+	.form-signin
+	{
+		max-width: 330px;
+		padding: 15px;
+		margin: 0 auto;
+	}
+	.form-signin input[type="text"]
+	{
+		margin-bottom:10px;
+		border-radius:5px;
+		height:35px;
+		font-family:cambria;
+	}
+	.form-signin input[type="password"]
+	{
+		margin-bottom: 10px;
+		border-radius:5px;
+		height:35px;
+		font-family:cambria;
+	}
+	.btn
+	{
+		margin-bottom: 10px;
+		border-radius:5px;
+		height:35px;
+		font-family:verdana;
+		font-size:15px;
+	}
+	.account-wall
+	{
+		margin-top: 20px;
+		padding: 40px 0px 20px 0px;
+		background-color: rgba(0,0,0,0.2);
+		-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	}
+	.profile-img
+	{
+		width:125px;
+		height:125px;
+		margin:auto;
+		margin-top:-90px;
+		display: block;
+		-moz-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		border-radius: 50%;
+	}
+	.new-account
+	{
+		display:block;
+		margin-top:10px;
+		color:white;
+		font-size:15px;
+		font-family:verdana;
+	}
+	a:link{
+		color:#000000;
+	}
+	a:hover{
+		font-size:15px;
+		font-family:verdana;
+		color:black;
+		background-color:green;
+		text-decoration:none;
+	}
+	
