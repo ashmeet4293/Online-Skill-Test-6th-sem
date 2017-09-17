@@ -75,8 +75,7 @@ if (isset($_POST['btnSignup'])) {
                             </select>
                             <input type="text" name = "answer" class="form-control" placeholder="Your Answer..." required autofocus> 
                             <button class="btn btn-lg btn-success btn-block" type="submit" name ="btnSignup">Sign Up</button>
-                            <p class="text-center new-account">Already Registered?<a href="StudentLoginPage.php">
-                                    <!--<input type="submit" value="submit" name="submit">SUbmit</input></a></p>-->
+                            <p> <a href="StudentLoginPage.php" class="text-center new-account">Already Registered?</a></p>
                         </form>
                     </div>
                 </div>

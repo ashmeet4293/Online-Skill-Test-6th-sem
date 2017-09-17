@@ -63,4 +63,14 @@
 		background-color:green;
 		text-decoration:none;
 	}
+	p a:link{
+		color:#000000;
+	}
+	p a:hover{
+		font-size:15px;
+		font-family:verdana;
+		color:black;
+		background-color:green;
+		text-decoration:none;
+	}
 	
