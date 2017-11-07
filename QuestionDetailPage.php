@@ -1,3 +1,10 @@
+	<?php
+		session_start();
+		if(!isset($_SESSION['username'])){
+			header("location:HomePage.php");
+		}
+		else{
+	?>
 <!DOCTYPE>
 <html>
 	<head>
@@ -8,26 +15,44 @@
 		<!-- Bootstrap Core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<!-- CSS -->
-		<link href="css/studentdetail.css" rel="stylesheet">
+		<link href="css/question.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class = "btn-group btn-group-xs" style = "margin:5px 5px">
-			<a href = "AdminPage.php"><button type="button" class="btn btn-primary" name = "home">Home</button></a>
-			<a href = "LogoutPage.php"><button type="button" class="btn btn-warning" name = "logout" style="float:right">Logout</button></a>
-		</div>
-		<div class = "table-responsive">
-			<table class = "table table-hover table-bordered">
-				<tr class = "success">
-					<th>Subject ID</th>
-					<th>Question ID</th>
-					<th>Question</th>
-					<th>Option 1</th>
-					<th>Option 2</th>
-					<th>Option 3</th>
-					<th>Option 4</th>
-					<th>Answer</th>
-				</tr>
-			</table>
+		<?php
+			include_once 'ButtonPage.php';
+		?>
+		<div class = "row">
+			<div class="col-sm-6 col-md-12">
+				<div class="container-fluid">
+					<div class = "table-responsive">
+						<table class = "table table-hover table-bordered">
+							<tr class = "success">
+								<th>Subject Name</th>
+								<th>Question ID</th>
+								<th>Question</th>
+								<th>Option 1</th>
+								<th>Option 2</th>
+								<th>Option 3</th>
+								<th>Option 4</th>
+								<th>Answer</th>
+							</tr>
+							<tr class = "info">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>	
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
+	<?php
+		}
+	?>

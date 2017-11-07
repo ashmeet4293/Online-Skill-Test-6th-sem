@@ -1,5 +1,5 @@
 	body{
-		background-image:url('../img/bg8.jpg');
+		background-image:url('../img/bg5.jpg');
 		background-repeat:no-repeat;
 		background-size:stretch;
 		background-position:center;
@@ -10,31 +10,21 @@
 		height:35px;
 		font-family:cambria;
 	}
-	.form-signup
-	{
+	.form-addQuestions{
 		max-width: 330px;
 		padding: 15px;
 		margin: 0 auto;
 	}
-	.btn
-	{
-		margin-bottom: 10px;
-		border-radius:5px;
-		height:35px;
-		font-family:verdana;
-		font-size:15px;
-	}
-	.account-wall
-	{
-		margin-top: 20px;
-		padding: 40px 0px 20px 0px;
+	.account-wall{
+		margin-left:-5%;
+		margin-right:-10%;
+		padding: 40px 0px 0px 0px;
 		background-color: rgba(0,0,0,0.2);
 		-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 		-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 	}
-	.profile-img
-	{
+	.profile-img{
 		width:125px;
 		height:125px;
 		margin:auto;
@@ -44,23 +34,29 @@
 		-webkit-border-radius: 50%;
 		border-radius: 50%;
 	}
-	.new-account
-	{
-		display:block;
-		margin-top:10px;
-		color:white;
-		font-size:15px;
+	.btn {
+		width:45%;
 		font-family:verdana;
+		text-align:center;
 	}
-	a:link{
-		color:#000000;
+	.table{
+		font-family:cambria;
 	}
-	a:hover{
-		color:black;
-		background-color:green;
-		text-decoration:none;
+	.btn-warning{
+		padding:2px 5px;
+		color:white;
+		border-radius:3px;
 	}
-	.val_error{
-		color:red;
+	.btn-danger{
+		padding:2px 5px;
+		color:white;
+		border-radius:3px;
+	}
+	thead{
+		font-size:13px;
+		text-align:center;
+	}
+	tbody{
+		font-size:12px;
 	}
 	

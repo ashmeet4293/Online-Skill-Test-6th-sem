@@ -1,37 +1,75 @@
-<!DOCTYPE>
-	<html>
-		<head>
-			<title>Change Password</title>
-			<meta charset="utf-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<!-- Bootstrap Core CSS -->
-			<link href="css/bootstrap.min.css" rel="stylesheet">
-			<!-- CSS -->
-			<link rel="StyleSheet" href="css/adminlogin.css" type = "Text/CSS">
+<?php
+session_start();
+$session_username = $_SESSION['username'];
+if (!isset($session_username)) {
+    header("location:HomePage.php");
+} else {
+    $mysqli = new mysqli("localhost", "root", "system", "oes");
+    if (isset($_POST['btnChange'])) {
 
-		</head>
-		<body>
-			<div class = "btn-group btn-group-xs" style = "margin:5px 5px">
-				<a href = "AdminPage.php"><button type="button" class="btn btn-primary" name = "home">Home</button></a>
-				<a href = "LogoutPage.php"><button type="button" class="btn btn-warning" name = "logout" style="float:right">Logout</button></a>
-			</div>
-			<div class="container" style = "margin-top:20px">
-				<div class="row">
-					<div class="col-sm-6 col-md-4 col-md-offset-4">
-						<div class="account-wall">
-							<img class="profile-img" src="./img/team/changePassword.jpg" alt="admin">
-							<form class="form-signin" method = "POST">
-								<input type="text" name = "username" class="form-control" placeholder="Enter Username..." required autofocus>
-								<input type="password" name = "currentPassword" class="form-control" placeholder="Enter Current Password..." required autofocus>
-								<input type="password" name = "newPassword" class="form-control" placeholder="Enter New Password..." required>
-								<input type="password" name = "confirmPassword" class="form-control" placeholder="Confirm Password..." required>
-								<button class="btn btn-lg btn-success btn-block" type="submit" name = "btnChange">Change</button>
-								&emsp;&emsp;&emsp;&emsp;&emsp; <a href = "AdminPasswordRetrivePage.php" style="color:black;">Forget Password?</a> 
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</body>
-	</html>
+        $current_password = $_POST['currentPassword'];
+        $newPassword = $_POST['newPassword'];
+        $confirmPassword = $_POST['confirmPassword'];
+
+        $sql = "SELECT * from admin WHERE Admin_name ='". $session_username ."' AND Password ='". $current_password ."'";
+
+//        $sql = "SELECT * FROM admin Where Admin_Name='$session_username'";
+//               $sql = "SELECT * FROM admin";
+
+        $result = $mysqli->query($sql);
+
+        if (!$result) {
+            $msg = "Username and password matched";
+            echo $msg;
+
+//                $updateSql = "UPDATE admin SET password=" . $newPassword;
+//                if ($mysqli->query($updateSql) === TRUE) {
+//                    $msg = "Username and password matched";
+//                    $updateSql = "UPDATE admin SET password=" . $newPassword;
+//                    echo "PAssword updated Successfully ";
+//                }
+        } else {
+            $error_msg = "Unable To Register" . $mysqli->error;
+            echo $error_msg;
+            echo $sql;
+        }
+    }
+    ?>
+    <!DOCTYPE>
+    <html>
+        <head>
+            <title>Change Password</title>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- Bootstrap Core CSS -->
+            <link href="css/bootstrap.min.css" rel="stylesheet">
+            <!-- CSS -->
+            <link rel="StyleSheet" href="css/login.css" type = "Text/CSS">
+
+        </head>
+        <body>
+            <?php
+            include 'ButtonPage.php';
+            ?>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-md-offset-4">
+                        <div class="account-wall">
+                            <img class="profile-img" src="./img/team/changePassword.jpg" alt="admin">
+                            <form class="form-signin" method = "POST">
+                                    <!--<input type="text" name = "username" class="form-control" placeholder="Enter Username..." required autofocus>-->
+                                <input type="password" name = "currentPassword" class="form-control" placeholder="Enter Current Password..." required autofocus>
+                                <input type="password" name = "newPassword" class="form-control" placeholder="Enter New Password..." required>
+                                <input type="password" name = "confirmPassword" class="form-control" placeholder="Confirm Password..." required>
+                                <button class="btn btn-md btn-success btn-block" type="submit" name = "btnChange">Change</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+    <?php
+}
+?>

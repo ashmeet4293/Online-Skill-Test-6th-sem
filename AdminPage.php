@@ -3,7 +3,11 @@
 		if(!isset($_SESSION['username'])){
 			header("location:HomePage.php");
 		}
-		else{
+                else{
+                    
+                        $mysqli = new mysqli("localhost", "root", "system", "oes");
+
+                
 	?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,21 +49,19 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="Admin.html">Home</a></li>
+							<li><a href="AdminPage.php">Home</a></li>
+							<li><a href="AdditionalAdminPage.php">Add Admin</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Student<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="AddStudentPage.php">Add Student</a></li>
-									<li><a href="RemoveStudentPage.php">Remove Student</a></li>
+									<li><a href="StudentManagementPage.php">Student Management</a></li>
 									<li><a href="StudentDetailPage.php">Student Detail</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Question<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="AddQuestionPage.php">Add Question</a></li>
-									<li><a href="RemoveQuestionPage.php">Remove Question</a></li>
-									<li><a href="UpdateQuestionPage.php">Update Question</a></li>
+									<li><a href="QuestionManagementPage.php">Question Management</a></li>
 									<li><a href="QuestionDetailPage.php">Question List</a></li>
 								</ul>
 							</li>

@@ -50,16 +50,13 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Test Paper<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="#">C Programing</a></li>
-									<li><a href="#">C++ Programing</a></li>
-									<li><a href="#">Visual Programing</a></li>
-									<li><a href="#">Java Programing</a></li>
-									<li><a href="#">Android Programming</a></li>
+									<li><a href="TestpaperPage.php">C</a></li>
+									<li><a href="TestpaperPage.php">Java</a></li>
+									<li><a href="TestpaperPage.php">Python</a></li>
 								</ul>
 							</li>
-							<li><a href="#">View Result</a></li>
-							<li><a href="#">Change Password</a></li>
-							<li><a href="#">Help</a></li>
+							<li><a href="StudentResultPage.php">View Result</a></li>
+							<li><a href="StudentChangePasswordPage.php">Change Password</a></li>
 							<li><a href="LogoutPage.php">Logout</a></li>
 						</ul>
 					</div>

@@ -2,30 +2,33 @@
 $mysqli = new mysqli("localhost", "root", "system", "oes");
 
 if (isset($_POST['btnLogin'])) {
-    $email = $_POST['email'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
-    $result = 'select * from students where email = "' . $email . '" and Pass = "' . $password . '"';
-    if ($mysqli->query($result) == true) {
+    
+    $sql = "select * from students where Uname='". $username ."' AND Pass='" . $password ."'";
+//  $sql=  "select * from students where Uname ='ashmeet4293' and Pass = 'Pokhara'";
+    $data=$mysqli->query($sql) ;
+    if ($data->num_rows >0) {
         session_start();
-        $_SESSION['username'] = $email;
-        header('location:StudentPage.php');
+        $_SESSION['username'] = $username;
+//       
+         header('location:StudentPage.php');
     } else {
-        echo "Invalid Account";
+        echo "Invalid Account :".$sql;
     }
-//	
 }
 ?>
 <!DOCTYPE>
 <html>
     <head>
-        <title>Login</title>
+        <title>Student Login</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- CSS -->
-        <link rel="StyleSheet" href="css/studentlogin.css" type = "Text/CSS">
+        <link rel="StyleSheet" href="css/login.css" type = "Text/CSS">
 
     </head>
     <body>
@@ -33,12 +36,14 @@ if (isset($_POST['btnLogin'])) {
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-md-offset-4">
                     <div class="account-wall">
-                        <img class="profile-img" src="./img/team/kundan.jpg" alt="admin">
+                        <img class="profile-img" src="./img/team/logo.jpg" alt="admin">
                         <form class="form-signin" method = "POST">
-                            <input type="text" name = "email" class="form-control" placeholder="Email..." required autofocus>
-                            <input type="password" name = "password" class="form-control" placeholder="Password..." required>
-                            <button class="btn btn-lg btn-success btn-block" type="submit" name = "btnLogin">Login</button>
-                            <p class="text-center new-account">Click <a href="RegistrationPage.php">Sign Up</a> To Create Account</p>
+                            <!--<input type="text" name = "id" class="form-control" placeholder="Enter Student ID..." required autofocus>-->
+                            <input type="text" name = "username" class="form-control" placeholder="Enter Username..." required autofocus>
+                            <input type="password" name = "password" class="form-control" placeholder="Enter Password..." required>
+                            <button class="btn btn-md btn-success btn-block" type="submit" name = "btnLogin">Login</button>
+                            <br/><label>&emsp;<a href = "StudentPasswordRetrivePage.php" style="color:black;text-decoration:none;">Forget Password?</a> &emsp;&emsp;&emsp;&emsp;<a href = "HomePage.php" style="color:black;text-decoration:none;">Home</a></label>
+                            <p class="text-center new-account">Click <a href="RegistrationPage.php"style="color:black;text-decoration:none;">Sign Up </a>To Create Account</p>
                         </form>
                     </div>
                 </div>

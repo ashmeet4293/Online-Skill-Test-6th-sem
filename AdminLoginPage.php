@@ -4,24 +4,17 @@ $mysqli = new mysqli("localhost", "root", "system", "oes");
 if (isset($_POST['btnLogin'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $result = 'select * from admin where Admin_name = "' . $username . '" and Password = "' . $password . '"';
-    if ($mysqli->query($result) == true) {
+    $sql = 'select * from admin where Admin_name = "' . $username . '" and Password = "' . $password . '"';
+    $result=$mysqli->query($sql);
+   
+    if ( $result-> num_rows >0) {
         session_start();
         $_SESSION['username'] = $username;
         header('location:AdminPage.php');
-    } else {
+    } 
+	else {
         echo "Invalid Account";
     }
-//			$username = $_POST["username"];
-//			$password = $_POST["password"];
-//			$question = $_POST["question"];
-//			$answer = $_POST["answer"];
-//			if($username==$user and $password==$pass){
-//				//SELECT username,passwrod from admin wehre 
-//                                session_start();
-//				$_SESSION["username"]=$username;
-//				header('location:AdminPage.php');
-//			}
 }
 ?>
 <!DOCTYPE>
@@ -34,11 +27,11 @@ if (isset($_POST['btnLogin'])) {
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- CSS -->
-        <link rel="StyleSheet" href="css/adminlogin.css" type = "Text/CSS">
+        <link rel="StyleSheet" href="css/login.css" type = "Text/CSS">
 
     </head>
     <body>
-        <div class="container" style = "margin-top:50px">
+        <div class="container-fluid" style = "margin-top:50px">
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-md-offset-4">
                     <div class="account-wall">
@@ -46,9 +39,8 @@ if (isset($_POST['btnLogin'])) {
                         <form class="form-signin" method = "POST">
                             <input type="text" name = "username" class="form-control" placeholder="Username..." required autofocus>
                             <input type="password" name = "password" class="form-control" placeholder="Password..." required>
-                            <button class="btn btn-lg btn-success btn-block" type="submit" name = "btnLogin">Login</button>
-                            &emsp;<a href = "AdminPasswordRetrivePage.php" style="color:black;">Forget Password?</a> &emsp;&emsp;&emsp;&emsp;&emsp;
-                            <a href = "HomePage.php" style="color:black;">Home</a>
+                            <button class="btn btn-md btn-success btn-block" type="submit" name = "btnLogin">Login</button>
+                            <br/><label>&emsp;<a href = "AdminPasswordRetrivePage.php" style="color:black;text-decoration:none;">Forget Password?</a> &emsp;&emsp;&emsp;&emsp;<a href = "HomePage.php" style="color:black;text-decoration:none;">Home</a></label>
                         </form>
                     </div>
                 </div>

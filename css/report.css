@@ -5,11 +5,13 @@
 		background-position:center;
 	}
 	th{
+		font-size:12px;
 		text-align:right;
 		font-family:cambria;
 		width:20%;
 	}
 	td{
+		font-size:13px;
 		font-family:cambria;
 	}
 	.form-control{

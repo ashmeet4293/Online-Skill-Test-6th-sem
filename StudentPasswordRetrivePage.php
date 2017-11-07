@@ -16,8 +16,9 @@
 				<div class="row">
 					<div class="col-sm-6 col-md-4 col-md-offset-4">
 						<div class="account-wall">
-							<img class="profile-img" src="./img/team/changePassword.jpg" alt="admin">
+							<img class="profile-img" src="./img/team/changePassword.jpg" alt="student">
 							<form class="form-signin" method = "POST">
+								<input type="text" name = "id" class="form-control" placeholder="Enter ID..." required autofocus>
 								<input type="text" name = "username" class="form-control" placeholder="Enter Username..." required autofocus>
 								<input type="text" name = "getPassword" class="form-control" placeholder="Enter Your Security Answer..." required autofocus>
 								<button class="btn btn-md btn-success btn-block" type="submit" name = "btnGetPassword">Get Password</button> 
