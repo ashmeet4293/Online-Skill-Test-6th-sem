@@ -5,6 +5,7 @@ if (!isset($_SESSION['username'])) {
 } else {
 
     $mysqli = new mysqli("localhost", "root", "system", "oes");
+    $update=false;
     if (isset($_POST['btnSignup'])) {
 
         $subjectId = $_POST['subject'];
@@ -30,6 +31,15 @@ if (!isset($_SESSION['username'])) {
             $message = ($ex->getTrace());
             echo $message;
         }
+    } else {
+        $subjectId = "";
+        $questionId = "";
+        $question = "";
+        $option1 = "";
+        $option2 = "";
+        $option3 = "";
+        $option4 = "";
+        $answer = "";
     }
 
 //    $mysqli = new mysqli("localhost", "root", "system", "oes");
@@ -81,17 +91,14 @@ if (!isset($_SESSION['username'])) {
                 }
             }
         }
-        
-        
-    } else if(isset($_GET['delete'])){
+    } else if (isset($_GET['delete'])) {
         $id = $_GET['delete'];
-        $query ="DELETE FROM question WHERE questionId=" . $id;
-        if($mysqli->query($query)=== TRUE){
+        $query = "DELETE FROM question WHERE questionId=" . $id;
+        if ($mysqli->query($query) === TRUE) {
             echo "Question Deleted Succesfully";
         }
     }
 }
-
 ?>
 <!DOCTYPE>
 <html>
@@ -157,7 +164,6 @@ if (!isset($_SESSION['username'])) {
                             </thead>
                             <tbody>
                                 <?php
-                                session_start();
                                 if (!isset($_SESSION['username'])) {
                                     header("location:HomePage.php");
                                 } else {

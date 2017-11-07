@@ -4,6 +4,7 @@ if (!isset($_SESSION['username'])) {
     header("location:HomePage.php");
 } else {
     $mysqli = new mysqli("localhost", "root", "system", "oes");
+    $update = false;
     if (isset($_POST['btnAdd'])) {
         $name = $_POST['fullname'];
         $email = $_POST['email'];
@@ -44,6 +45,19 @@ if (!isset($_SESSION['username'])) {
         if (isset($_POST['btnLoadTable'])) {
             echo "Load button Pressed";
         }
+    } else {
+        $name = "";
+        $email = "";
+        $username = "";
+        $password = "";
+        $confirmPassword = "";
+        $gender = "";
+        $birthDate = "";
+//            $phone = $row['phone'];
+        $address = "";
+        $regDate = "";
+        $question = "";
+        $answer = "";
     }
 
 //    $sqli = new mysqli("localhost", "root", "system", "oes");
@@ -153,15 +167,15 @@ if (!isset($_SESSION['username'])) {
                         <img class="profile-img" src="./img/team/addStudent.jpg" alt="admin">
                         <form class="form-signup" method = "POST">
                             <p style="font-size:15px;color:red;text-align:center;font-family:verdana;"><?php
-        if (isset($error_msg)) {
-            echo $error_msg;
-        }
-        ?></p>
+                                if (isset($error_msg)) {
+                                    echo $error_msg;
+                                }
+                                ?></p>
                             <p style="font-size:15px;color:green;text-align:center;font-family:verdana;"><?php
                                 if (isset($msg)) {
                                     echo $msg;
                                 }
-        ?></p>
+                                ?></p>
                             <input type="text" name = "fullname" class="form-control" placeholder="Full Name..." required autofocus value="<?php echo $name; ?>">
                             <input type="email" name = "email" class="form-control" placeholder="Email..." required autofocus value= "<?php echo $email; ?>" >
                             <input type="text" name = "username" class="form-control" placeholder="Username..." required autofocus value= "<?php echo $username; ?>">
