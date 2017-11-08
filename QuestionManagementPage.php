@@ -55,6 +55,7 @@ if (!isset($_SESSION['username'])) {
             $subjectId = $row["subjectName"];
             $questionId = $row["questionId"];
             $question = $row["Question"];
+//            echo "Question ".$question;
             $option1 = $row["option1"];
             $option2 = $row["option2"];
             $option3 = $row["option3"];
@@ -129,7 +130,7 @@ if (!isset($_SESSION['username'])) {
                                 <option value="C++">C++</option>
                             </select>
                             <input type="text" name = "questionID" class="form-control" placeholder="Question ID..." value="<?php echo $questionId; ?>">
-                            <textarea rows= "5" name = "question" class="form-control" placeholder="Enter Question..." required autofocus value="<?php echo $question; ?>"></textarea>
+                            <textarea rows= "5" name = "question" class="form-control" placeholder="Enter Question..." required autofocus ><?php echo $question; ?></textarea>
                             <input type="text" name = "option1" class="form-control" placeholder="Option1..." required autofocus value="<?php echo $option1; ?>">
                             <input type="text" name = "option2" class="form-control" placeholder="Option2..." required autofocus value="<?php echo $option2; ?>">
                             <input type="text" name = "option3" class="form-control" placeholder="Option3..." required autofocus value="<?php echo $option3; ?>">

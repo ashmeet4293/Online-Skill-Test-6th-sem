@@ -3,34 +3,35 @@ session_start();
 if (!isset($_SESSION['username'])) {
     header("location:HomePage.php");
 } else {
-        $mysqli = new mysqli("localhost", "root", "system", "oes");
+    $mysqli = new mysqli("localhost", "root", "system", "oes");
+    if(isset($_POST['btnAdd'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $confirmPassword = $_POST['confirmPassword'];
+        $securityQuestion = $_POST['question'];
+        $securityAnswer = $_POST['answer'];
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $confirmPassword = $_POST['confirmPassword'];
-    $securityQuestion = $_POST['question'];
-    $securityAnswer = $_POST['answer'];
+        $password_length = strlen($password);
+        if ($password_length <= 6) {
+            $error_msg = "Password Length Should Be More Than 6";
+        } else if ($password != $confirmPassword) {
+            $error_msg = "Password Donot Match";
+        } else {
 
-    $password_length = strlen($password);
-    if ($password_length <= 6) {
-        $error_msg = "Password Length Should Be More Than 6";
-    } else if ($password != $confirmPassword) {
-        $error_msg = "Password Donot Match";
-    } else {
+            try {
 
-        try {
-
-            $insertquery = "INSERT INTO admin(Admin_name,password,security_question,Answer)
+                $insertquery = "INSERT INTO admin(Admin_name,password,security_question,Answer)
 							VALUES ('$username','$password','$securityQuestion','$securityAnswer')";
 
-            if ($mysqli->query($insertquery) === TRUE) {
-                $msg = "Admin Added Successfully";
-            } else {
-                $error_msg = "Unable To Register";
+                if ($mysqli->query($insertquery) === TRUE) {
+                    $msg = "Admin Added Successfully";
+                } else {
+                    $error_msg = "Unable To Register";
+                }
+            } catch (Exception $ex) {
+                $message = ($ex->getTrace());
+                echo $message;
             }
-        } catch (Exception $ex) {
-            $message = ($ex->getTrace());
-            echo $message;
         }
         $mysqli->close();
     }
@@ -49,9 +50,9 @@ if (!isset($_SESSION['username'])) {
 
         </head>
         <body>
-    <?php
-    include 'ButtonPage.php';
-    ?>
+            <?php
+            include 'ButtonPage.php';
+            ?>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6 col-md-4 col-md-offset-4">
