@@ -51,8 +51,8 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Test Paper<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li><a href="TestpaperPage.php">C</a></li>
-									<li><a href="TestpaperPage.php">Java</a></li>
-									<li><a href="TestpaperPage.php">Python</a></li>
+									<li><a href="#">Java</a></li>
+									<li><a href="#">Python</a></li>
 								</ul>
 							</li>
 							<li><a href="StudentResultPage.php">View Result</a></li>

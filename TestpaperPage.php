@@ -39,7 +39,7 @@ if (!isset($_SESSION['username'])) {
             }
             if ($marks > 8) {
                 $remarks = "Excellent";
-            } else if ($marks < 8 and $marks > 5) {
+            } else if ($marks <= 8 and $marks > 5) {
                 $remarks = "Good";
             } else {
                 $remarks = "Work Hard";
@@ -109,6 +109,7 @@ if (!isset($_SESSION['username'])) {
                                     </div>
                                     <div class = "radio">
                                         <label><input type="radio" name = "Q2" id="Q2Option2" value="<?php echo ($resultArray[1]['option2']); ?>"><?php echo ($resultArray[1]['option2']); ?></label>
+                                    </div>
                                         <div class = "radio">
                                             <label><input type="radio" name = "Q2" id="Q2Option3" value="<?php echo ($resultArray[1]['option3']); ?>"><?php echo ($resultArray[1]['option3']); ?></label>
                                         </div>

@@ -6,15 +6,13 @@ if (isset($_POST['btnLogin'])) {
     $password = $_POST['password'];
     
     $sql = "select * from students where Uname='". $username ."' AND Pass='" . $password ."'";
-//  $sql=  "select * from students where Uname ='ashmeet4293' and Pass = 'Pokhara'";
     $data=$mysqli->query($sql) ;
     if ($data->num_rows >0) {
         session_start();
         $_SESSION['username'] = $username;
-//       
          header('location:StudentPage.php');
     } else {
-        echo "Invalid Account :".$sql;
+        echo "Invalid Account :";
     }
 }
 ?>

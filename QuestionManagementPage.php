@@ -184,6 +184,7 @@ if (!isset($_SESSION['username'])) {
                                         . "<td> " . $row["option3"] . "</td>"
                                         . "<td>" . $row["option4"] . "</td>"
                                         . "<td> " . $row["answer"] . "</td>"
+                                                
                                         ?>
                                     <td><a href = "QuestionManagementPage.php?edit=<?php echo $row['questionId']; ?>" class = "btn-warning" style = "text-decoration:none;">Edit</a></td>
                                     <td><a href = "QuestionManagementPage.php?delete=<?php echo $row['questionId']; ?>" class = "btn-danger" style = "text-decoration:none;">Delete</a></td>

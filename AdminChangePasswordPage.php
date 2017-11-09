@@ -11,27 +11,20 @@ if (!isset($session_username)) {
         $newPassword = $_POST['newPassword'];
         $confirmPassword = $_POST['confirmPassword'];
 
-        $sql = "SELECT * from admin WHERE Admin_name ='". $session_username ."' AND Password ='". $current_password ."'";
-
-//        $sql = "SELECT * FROM admin Where Admin_Name='$session_username'";
-//               $sql = "SELECT * FROM admin";
-
+        $sql = "SELECT * from admin WHERE Admin_name ='" . $session_username . "' AND Password ='" . $current_password . "'";
         $result = $mysqli->query($sql);
+        if (count($result) == 1) {
 
-        if (!$result) {
-            $msg = "Username and password matched";
-            echo $msg;
-
-//                $updateSql = "UPDATE admin SET password=" . $newPassword;
-//                if ($mysqli->query($updateSql) === TRUE) {
-//                    $msg = "Username and password matched";
-//                    $updateSql = "UPDATE admin SET password=" . $newPassword;
-//                    echo "PAssword updated Successfully ";
-//                }
+            $updateSql = "UPDATE admin SET Password='" . $newPassword."'";
+//            $updatedRecord=
+            if ($mysqli->query($updateSql) === TRUE) {
+                echo "PAssword updated Successfully ";
+            } else {
+                $error_msg = "Unable To Update Password" . $mysqli->error;
+                echo $error_msg;
+            }
         } else {
-            $error_msg = "Unable To Register" . $mysqli->error;
-            echo $error_msg;
-            echo $sql;
+            echo "Current password donot matched";
         }
     }
     ?>

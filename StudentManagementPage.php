@@ -13,7 +13,7 @@ if (!isset($_SESSION['username'])) {
         $confirmPassword = $_POST['confirmPassword'];
         $gender = $_POST['gender'];
         $birthDate = $_POST['birthDate'];
-        $phone = $_POST['phone'];
+//        $phone = $_POST['phone'];
         $address = $_POST['address'];
         $regDate = date("Y-m-d H:i:s");
         $question = $_POST['question'];
